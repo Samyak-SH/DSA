@@ -14,7 +14,7 @@ struct node{
     STUDENT s;
 };typedef struct node* NODE;
 
-NODE insert(NODE head, STUDENT s){
+NODE insert_at_end(NODE head, STUDENT s){
     NODE newNode = (NODE)malloc(sizeof(struct node));
     newNode->next = NULL;
     newNode->s = s;
@@ -29,7 +29,7 @@ NODE insert(NODE head, STUDENT s){
     return head;
 }
 
-NODE delete(NODE head){
+NODE delete_at_end(NODE head){
     if(head==NULL){
         printf("Nothing to delete\n");
         return NULL;
@@ -44,6 +44,32 @@ NODE delete(NODE head){
     free(temp->next);
     temp->next = NULL;
     return head;
+}
+
+NODE insert_at_beg(NODE head, STUDENT s){
+    NODE newNode = (NODE)malloc(sizeof(struct node));
+    newNode->next = NULL;
+    newNode->s = s;
+    if(head==NULL){
+        return newNode;
+    }
+    newNode->next = head;
+    return newNode;
+    
+}
+
+NODE delete_at_beg(NODE head){
+    if(head==NULL){
+        printf("nothing to delete : \n");
+        return NULL;
+    }
+    if(head->next == NULL){
+        return NULL;
+    }
+    NODE temp = head;
+    temp=temp->next;
+    free(head);
+    return temp;
 }
 
 void display(NODE head){
@@ -82,7 +108,7 @@ int main()
     NODE head=NULL;
     int ch;
     STUDENT s;
-    printf("1) Insert 2) Delete 3) Display 4) exit\n");
+    printf("1) Insert at end 2) Insert at beg 3) Delete at end 4) Delete at beg 5) Display 6) exit\n");
     while(1){
         printf("enter choice : ");
         scanf("%d", &ch);
@@ -90,12 +116,19 @@ int main()
         {
         case 1:
             input(&s);
-            head = insert(head, s);
+            head = insert_at_end(head, s);
             break;
         case 2:
-            head = delete(head);
+            input(&s);
+            head = insert_at_beg(head, s);
             break;
         case 3:
+            head = delete_at_end(head);
+            break;
+        case 4:
+            head = delete_at_beg(head);
+            break;
+        case 5:
             display(head);
             break;
         
