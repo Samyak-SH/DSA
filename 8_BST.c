@@ -69,9 +69,29 @@ void postoder(NODE root){
     printf("%d ", root->value);
 }
 
+void search(NODE root, int key){
+    NODE temp = root;
+    if(root == NULL){
+        printf("Tree is empty\n");
+    }
+    while(temp!=NULL){
+        if(key == temp->value){
+            printf("Key found\n");
+            return;
+        }
+        if(key > temp->value ){
+            temp = temp->right;
+        }
+        else{
+            temp = temp->left;
+        }
+    }
+    printf("Key not found\n");
+}
+
 int main()
 {
-    int n, value;
+    int n, value, key;
     NODE root = NULL;
     
     printf("Enter number of values to insert : ");
@@ -92,5 +112,9 @@ int main()
     printf("postorder traversal : \n"); 
     postoder(root);   
     printf("\n\n");
+
+    printf("Enter key to serach : ");
+    scanf("%d", &key);
+    search(root, key);
 }
     
