@@ -1,1 +1,4 @@
 *.exe
+/vscode
+tempCodeRunner.c
+test.c
