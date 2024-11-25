@@ -108,10 +108,10 @@ void display(NODE head){
     while(temp!=NULL){
         printf("\n\nName : %s\n", temp->e.name);
         printf("Salary : %lf\n", temp->e.sal);
-        printf("SSN : %lf\n", temp->e.ssn);
-        printf("Dept : %lf\n", temp->e.dept);
-        printf("Designation : %lf\n", temp->e.designation);
-        printf("Phone number : %lf\n", temp->e.ph);
+        printf("SSN : %s\n", temp->e.ssn);
+        printf("Dept : %s\n", temp->e.dept);
+        printf("Designation : %s\n", temp->e.designation);
+        printf("Phone number : %s\n", temp->e.ph);
         temp=temp->next;
     }
     printf("\n\n\n");
