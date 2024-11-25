@@ -7,7 +7,7 @@ struct employee{
     char dept[50];
     char designation[50];
     double sal;
-    char ph;
+    char ph[50];
 };typedef struct employee EMP;
 
 struct node{
